@@ -48,7 +48,8 @@ add_rules("mode.debug", "mode.release")
 set_languages("c++20")
 
 local DEPENDENCIES<const> = {
-    "boost"
+    "boost",
+    "curl"
 }
 
 add_requires(DEPENDENCIES)
@@ -57,13 +58,11 @@ add_packages(DEPENDENCIES)
 target("anidl")
 do
     set_kind("binary")
-    add_files(
-            "src/**.cpp" --,
-            --"src/**.mpp"
-    )
+    add_files("src/**.cpp")
     add_headerfiles("src/**.hpp")
     add_includedirs("src", "src/include")
 end
+target_end()
 
 --
 -- If you want to known more usage about xmake, please see https://xmake.io
