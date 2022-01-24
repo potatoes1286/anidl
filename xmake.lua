@@ -47,6 +47,13 @@ add_rules("mode.debug", "mode.release")
 
 set_languages("c++20")
 
+local DEPENDENCIES<const> = {
+    "boost"
+}
+
+add_requires(DEPENDENCIES)
+add_packages(DEPENDENCIES)
+
 target("anidl")
 do
     set_kind("binary")
@@ -55,6 +62,7 @@ do
             --"src/**.mpp"
     )
     add_headerfiles("src/**.hpp")
+    add_includedirs("src", "src/include")
 end
 
 --
