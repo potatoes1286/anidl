@@ -8,4 +8,5 @@ build/
 
 
 # Project exclude paths
+CMakeLists.txt
 /cmake-build-debug/
